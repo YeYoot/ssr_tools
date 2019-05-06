@@ -74,8 +74,16 @@ def create_account(user_info, config):
     sorted_user = sorted(user_info.items(), key=lambda x: x[0])
     for key, value in sorted_user:
         create_one_account(process, key, value["port"], value["pass_word"], config)
-        process.expect("是否继续")
-        process.sendline("Y")
+        try:
+            process.expect("是否继续")
+            process.sendline("Y")
+        except:
+            # process.expect("错误")
+            process = pexpect.spawn("bash ssrmu.sh", logfile=sys.stdout)
+            process.expect("管理脚本")
+            process.sendline("7")
+            process.expect("用户配置")
+            process.sendline("1")
 
     show_account()
     return True

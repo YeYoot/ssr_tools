@@ -13,26 +13,16 @@ def get_userinfo(excel_name, sheet_name):
         ws = wb.sheet_by_name(sheet_name)
     except:
         logging.info("打开EXCEL表格失败，请确认{0}文件，{1}页签是否存在。".format(excel_name, sheet_name))
-        return {}
-    user_info = {}
-    password_col = 0
+        sys.exit(-1)
+    user_info = []
     port_col = 0
-    user_col = 0
     for i in range(0, ws.ncols):
-        if ws.cell(rowx=0, colx=i).value == u"密码":
-            password_col = i
-        elif ws.cell(rowx=0, colx=i).value == u"端口":
+        if ws.cell(rowx=0, colx=i).value == u"端口":
             port_col = i
-        elif ws.cell(rowx=0, colx=i).value == u"用户名":
-            user_col = i
 
     for j in range(1, ws.nrows):
-        user_name = str(ws.cell(rowx=j, colx=user_col).value)
         port = str(int(ws.cell(rowx=j, colx=port_col).value))
-        if not ws.cell(rowx=j, colx=password_col).value:
-            continue
-        password = (ws.cell(rowx=j, colx=password_col).value)[-4:]
-        user_info.update({user_name: {"pass_word": password, "port": port}})
+        user_info.append(port)
 
     return user_info
 
@@ -49,9 +39,8 @@ def delete_one_account(port):
 
 
 def delete_account(user_info):
-    sorted_user = sorted(user_info.items(), key=lambda x: x[0])
-    for key, value in sorted_user:
-        delete_one_account(value["port"])
+    for port in user_info:
+        delete_one_account(port)
     show_account()
     return True
 
