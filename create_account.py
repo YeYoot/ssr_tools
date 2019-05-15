@@ -20,32 +20,41 @@ def get_userinfo(excel_name, sheet_name):
     password_col = 0
     port_col = 0
     user_col = 0
+    dev_col = 0
+    flow_col = 0
     for i in range(0, ws.ncols):
-        if ws.cell(rowx=0, colx=i).value == u"密码":
-            password_col = i
+        if ws.cell(rowx=0, colx=i).value == u"用户名":
+            user_col = i
         elif ws.cell(rowx=0, colx=i).value == u"端口":
             port_col = i
-        elif ws.cell(rowx=0, colx=i).value == u"用户名":
-            user_col = i
+        elif ws.cell(rowx=0, colx=i).value == u"密码":
+            password_col = i
+        elif ws.cell(rowx=0, colx=i).value == u"设备数":
+            dev_col = i
+        elif ws.cell(rowx=0, colx=i).value == u"总流量":
+            flow_col = i
 
     for j in range(1, ws.nrows):
         user_name = str(ws.cell(rowx=j, colx=user_col).value)
-        port = str(int(ws.cell(rowx=j, colx=port_col).value))
-        if not ws.cell(rowx=j, colx=password_col).value:
-            continue
-        password = (ws.cell(rowx=j, colx=password_col).value)[-4:]
-        user_info.update({user_name: {"pass_word": password, "port": port}})
+        # port = str(int(ws.cell(rowx=j, colx=port_col).value))
+        # password = str(ws.cell(rowx=j, colx=password_col).value)
+        user_info.update({user_name: {
+            "pass_word": str(ws.cell(rowx=j, colx=password_col).value),
+            "port": str(int(ws.cell(rowx=j, colx=port_col).value)),
+            "dev": str(int(ws.cell(rowx=j, colx=dev_col).value)),
+            "flow": str(int(ws.cell(rowx=j, colx=flow_col).value)),
+        }})
 
     return user_info
 
 
-def create_one_account(process, user_name, port, password, config):
+def create_one_account(process, user_name, value, config):
     process.expect("要设置的用户")
     process.sendline(user_name)
     process.expect("端口")
-    process.sendline(port)
+    process.sendline(value["port"])
     process.expect("密码")
-    process.sendline(password)
+    process.sendline(value["pass_word"])
     process.expect("加密方式")
     process.sendline(config["加密方式"])
     process.expect("协议插件")
@@ -53,13 +62,13 @@ def create_one_account(process, user_name, port, password, config):
     process.expect("混淆插件")
     process.sendline(config["混淆插件"])
     process.expect("限制的设备数")
-    process.sendline(config["限制的设备数"])
+    process.sendline(value["dev"])
     process.expect("单线程 限速上限")
     process.sendline(config["单线程 限速上限"])
     process.expect("总速度 限速上限")
     process.sendline(config["总速度 限速上限"])
     process.expect("总流量上限")
-    process.sendline(config["总流量上限"])
+    process.sendline(value["flow"])
     process.expect("禁止访问的端口")
     process.sendline(config["禁止访问的端口"])
 
@@ -73,7 +82,7 @@ def create_account(user_info, config):
 
     sorted_user = sorted(user_info.items(), key=lambda x: x[0])
     for key, value in sorted_user:
-        create_one_account(process, key, value["port"], value["pass_word"], config)
+        create_one_account(process, key, value, config)
         try:
             process.expect("是否继续")
             process.sendline("Y")
