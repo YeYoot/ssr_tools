@@ -1,6 +1,8 @@
 # batch_create_account
 批量创建/删除账号脚本
 
+科学上网自建ssr服务器：<https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAss%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B>
+
 ## 使用说明
 
 ### 批量创建账号
