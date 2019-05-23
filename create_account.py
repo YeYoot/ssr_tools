@@ -123,7 +123,7 @@ if __name__ == '__main__':
         excel_name = sys.argv[1]
         sheet_name = sys.argv[2]
     except:
-        excel_name = "userinfo.xlsx"
+        excel_name = "create_account.xlsx"
         sheet_name = "Sheet1"
         logging.info("未指定EXCEL与页签，默认读取{0}表格，{1}页签。".format(excel_name, sheet_name))
     # 获取EXCEL信息
