@@ -3,10 +3,14 @@
 ## 下载软件
 
 1. 下载Shadowrocket IPA文件： 
+
    - 下载链接：https://raw.githubusercontent.com/Cowan97/Shadowrocket/master/Shadowrocket-2.1.11.ipa
 2. 使用爱思助手给手机安装Shadowrocket：
+
    1. 在电脑上安装爱思助手：<https://www.i4.cn/>
+   
    2. 将iPhone通过USB连接到电脑
+
    3. 在电脑上双击下载好的ipa文件，将shadowrocket安装到手机上
 
 ## 使用说明
