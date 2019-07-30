@@ -6,10 +6,12 @@
 
 ## 使用说明
 
-1. 图片1
-2. 图片2
-3. 图片3
-4. 在服务器设置里添加IP ,端口, 密码等信息，然后点打开 shadowsocks。
+1. 第1，2步：
+   ![图1](https://github.com/YeYoot/ssr_tools/blob/master/client_guide/resource/Mac/%E5%9B%BE%E7%89%871.png)
+2. 第3步：
+   ![图1](https://github.com/YeYoot/ssr_tools/blob/master/client_guide/resource/Mac/%E5%9B%BE%E7%89%872.png)
+3. 第4步：在服务器设置里添加IP ,端口, 密码等信息，然后点打开 shadowsocks。
+   ![图1](https://github.com/YeYoot/ssr_tools/blob/master/client_guide/resource/Mac/%E5%9B%BE%E7%89%873.png)
 
 ## 测试
 
