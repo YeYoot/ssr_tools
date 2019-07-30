@@ -2,11 +2,14 @@
 
 ## 下载软件
 
-1. 下载软件：待补充
+1. 下载软件：<https://github.com/YeYoot/ssr_tools/tree/master/client_guide/resource/Mac/ShadowsocksX-NG-R8.dmg>
 
 ## 使用说明
 
-1. 待补充
+1. 图片1
+2. 图片2
+3. 图片3
+4. 在服务器设置里添加IP ,端口, 密码等信息，然后点打开 shadowsocks。
 
 ## 测试
 
