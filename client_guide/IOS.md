@@ -26,7 +26,11 @@
 ## 测试
 
 1. 尝试登陆以下网站测试是否成功
-   - www.google.com
-   - www.youtube.com
+   - <https://www.google.com/>
+   - <https://www.youtube.com/>
+   - <https://www.facebook.com/>
+   - <https://twitter.com/>
+   - <https://www.instagram.com/>
+2. 成功后可以上Youtube打开一个1080P视频看看速度如何。
 
 注：不同地方情况不同，如果连接WIFI测试不成功尝试切换成手机流量再试一试
