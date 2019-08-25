@@ -16,7 +16,7 @@ ssr_tools项目主要内容：
 
 ssr支持操作系统：IOS，Android，Windows，Mac，Linux
 
-使用说明见Wiki：<https://github.com/YeYoot/ssr_tools/wiki/client_guide>
+使用说明见Wiki：<https://github.com/YeYoot/ssr_client_guide>
 
 ## ShadowsocksR 一键安装管理脚本
 
