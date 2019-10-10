@@ -2,10 +2,21 @@
 
 批量创建账号
 
-依赖库：
+## 安装三方库
 
-- xlrd
-- pexpect
+1. 如果没有pip，先安装pip；有则进行第2步
+
+   ```
+   sudo yum -y install epel-release
+   sudo yum -y install python-pip
+   ```
+
+2. 安装三方库
+
+   ```
+   pip install xlrd
+   pip install pexpect
+   ```
 
 ## 使用说明
 
